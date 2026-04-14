@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIRAVAT Demo Panel</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="backdrop backdrop-a"></div>
+  <div class="backdrop backdrop-b"></div>
+
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">Safe local preview</div>
+      <h1>AIRAVAT Demo Panel</h1>
+    </div>
+    <div class="status-pill">Offline demo</div>
+  </header>
+
+  <main class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">A</div>
+        <div>
+          <div class="brand-title">AIRA</div>
+          <div class="brand-subtitle">Neutral UI preview</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav-item active" href="#overview">Overview</a>
+        <a class="nav-item" href="#devices">Devices</a>
+        <a class="nav-item" href="#activity">Activity</a>
+        <a class="nav-item" href="#logs">Logs</a>
+      </nav>
+
+      <div class="sidebar-card">
+        <div class="sidebar-label">Current time</div>
+        <div id="currentTime" class="sidebar-value">--:--</div>
+        <div class="sidebar-note">Rendered locally, no backend</div>
+      </div>
+    </aside>
+
+    <section class="content">
+      <section id="overview" class="hero card">
+        <div>
+          <span class="tag">Demo mode</span>
+          <h2>Dashboard preview for the web panel layout</h2>
+          <p>
+            This page mirrors the visual structure of a management dashboard without
+            any network integration, credentials, or device control features.
+          </p>
+        </div>
+        <div class="hero-grid">
+          <div class="mini-card">
+            <span>Panels</span>
+            <strong>4</strong>
+          </div>
+          <div class="mini-card">
+            <span>Active view</span>
+            <strong>Overview</strong>
+          </div>
+          <div class="mini-card">
+            <span>Mode</span>
+            <strong>Safe</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats-grid">
+        <article class="card stat-card">
+          <span class="stat-label">Devices</span>
+          <strong class="stat-value">18</strong>
+          <span class="stat-foot">Sample data only</span>
+        </article>
+        <article class="card stat-card">
+          <span class="stat-label">Events today</span>
+          <strong class="stat-value">142</strong>
+          <span class="stat-foot">Synthetic activity</span>
+        </article>
+        <article class="card stat-card">
+          <span class="stat-label">Uptime</span>
+          <strong class="stat-value">99.9%</strong>
+          <span class="stat-foot">Local preview session</span>
+        </article>
+        <article class="card stat-card">
+          <span class="stat-label">Alerts</span>
+          <strong class="stat-value">3</strong>
+          <span class="stat-foot">Informational only</span>
+        </article>
+      </section>
+
+      <section id="devices" class="card table-card">
+        <div class="section-head">
+          <div>
+            <h3>Devices</h3>
+            <p>Example rows for layout testing and spacing checks.</p>
+          </div>
+          <button class="ghost-button" type="button">Refresh preview</button>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Platform</th>
+                <th>Status</th>
+                <th>Last seen</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Atlas One</td>
+                <td>Android</td>
+                <td><span class="badge success">Online</span></td>
+                <td>2 min ago</td>
+              </tr>
+              <tr>
+                <td>North Star</td>
+                <td>Android</td>
+                <td><span class="badge warning">Idle</span></td>
+                <td>18 min ago</td>
+              </tr>
+              <tr>
+                <td>Orchid View</td>
+                <td>Web</td>
+                <td><span class="badge neutral">Preview</span></td>
+                <td>Just now</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="two-col">
+        <section id="activity" class="card timeline-card">
+          <div class="section-head">
+            <div>
+              <h3>Activity</h3>
+              <p>Placeholder timeline for UI verification.</p>
+            </div>
+          </div>
+          <ul class="timeline">
+            <li>
+              <span class="dot"></span>
+              <div>
+                <strong>Session created</strong>
+                <p>Local demo initialized in the browser.</p>
+              </div>
+            </li>
+            <li>
+              <span class="dot"></span>
+              <div>
+                <strong>Layout ready</strong>
+                <p>Sidebar, cards, and responsive grid loaded.</p>
+              </div>
+            </li>
+            <li>
+              <span class="dot"></span>
+              <div>
+                <strong>No backend calls</strong>
+                <p>All content is static and intentionally offline.</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section id="logs" class="card notes-card">
+          <div class="section-head">
+            <div>
+              <h3>Notes</h3>
+              <p>Safe guidance for local preview use.</p>
+            </div>
+          </div>
+          <div class="note">
+            Open this folder with a simple static server to review the design.
+          </div>
+          <div class="note">
+            Keep the demo isolated from live services and external APIs.
+          </div>
+          <div class="note">
+            Replace sample text with your own lawful dashboard content if needed.
+          </div>
+        </section>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    const currentTime = document.getElementById('currentTime');
+
+    function updateClock() {
+      const now = new Date();
+      currentTime.textContent = now.toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
